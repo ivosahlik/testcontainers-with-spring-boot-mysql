@@ -1,0 +1,12 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: test-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_USER: root
+      MYSQL_PASSWORD:
+      MYSQL_DATABASE: testdb
+    ports:
+      - "3306:3306"
+    command: --default-authentication-plugin=mysql_native_password

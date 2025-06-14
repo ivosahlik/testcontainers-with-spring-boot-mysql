@@ -1,0 +1,24 @@
+name: 'Trivy Scan'
+description: 'Run Trivy scan using aquasecurity/trivy-action'
+
+outputs:
+  report:
+    description: 'Path to the Trivy scan report'
+    value:
+runs:
+  using: 'composite'
+  steps:
+    - name: Manual Trivy Setup
+      uses: aquasecurity/setup-trivy@v0.2.0
+      with:
+        cache: true
+        version: v0.63.0
+    - name: Run Trivy scan
+      id: trivy-scan
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: fs
+        scanners: 'vuln,secret,misconfig'
+        scan-ref: .
+        format: table
+        severity: LOW,MEDIUM,CRITICAL,HIGH
