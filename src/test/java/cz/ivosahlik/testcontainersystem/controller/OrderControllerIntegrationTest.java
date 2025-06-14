@@ -1,7 +1,6 @@
 package cz.ivosahlik.testcontainersystem.controller;
 
 
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -24,9 +23,9 @@ import cz.ivosahlik.testcontainersystem.repository.OrderRepository;
 @SpringBootTest
 @AutoConfigureMockMvc
 @DirtiesContext
-public class OrderControllerIntegrationTest {
+class OrderControllerIntegrationTest {
 
-	@Autowired
+    @Autowired
     private MockMvc mockMvc;
 
     @Autowired
